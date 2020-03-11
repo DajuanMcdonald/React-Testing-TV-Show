@@ -8,6 +8,9 @@ import { formatSeasons } from "./utils/formatSeasons";
 import Episodes from "./components/Episodes";
 import "./styles.css";
 
+// import fetchShow 
+import fetchShow from './api/fetchShow';
+
 export default function App() {
   const [show, setShow] = useState(null);
   const [seasons, setSeasons] = useState([]);
@@ -22,6 +25,7 @@ export default function App() {
         )
         .then(res => {
           setShow(res.data);
+          console.log(res.data)
           setSeasons(formatSeasons(res.data._embedded.episodes));
         });
     };

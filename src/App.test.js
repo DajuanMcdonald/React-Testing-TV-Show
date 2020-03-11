@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { render } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import App from './App';
+
+afterEach(cleanup)
 
 test('should render without error [1]', () => {
 
@@ -13,7 +15,7 @@ ReactDOM.render(<App/>, div);
 
 test('should contain text in document [2]', () => {
     const { getByText } = render(<App/>);
-    expect(getByText(/fetching/i)).toBeInTheDocument();
+    expect(getByText(/fetching data/i)).toBeInTheDocument();
     
 })
 
