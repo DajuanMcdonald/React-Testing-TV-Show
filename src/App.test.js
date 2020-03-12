@@ -19,3 +19,15 @@ test('should contain text in document [2]', () => {
     
 })
 
+
+
+
+test('fetch makes api call to proper url', async () => {
+    const myAxios = {
+        get: jest.fn(() => Promise.resolve({data: {episodes: 'Season'}})),
+    }
+    const url = 'https://api.tvmaze.com/singlesearch/shows?q=stranger-things&embed=episodes'
+    render(<App url={url}/>)
+    expect(myAxios.get).toHaveBeenCalledTimes(0)
+    
+})

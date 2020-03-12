@@ -13,7 +13,7 @@ export default function Episodes(props) {
             <p className="episode-number">
               Season {e.season}, Episode {e.number}
             </p>
-            <h3>{e.name}</h3>
+            <h3 data-testid="name">{e.name}</h3> 
             {e.summary && parse(e.summary)}
             <div className="flex-spacer" />
             <p className="episode-runtime">{e.runtime} minutes</p>
